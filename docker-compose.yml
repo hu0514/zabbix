@@ -1,0 +1,40 @@
+version: '3'
+services:
+                mysqld5.7.24:
+                        image: 18817810841/mysql:5.7.24
+                        container_name: mysqld5.7.24
+                        restart: always
+                        network_mode: "host"
+                zabbix-server-mysql:
+                        image: zabbix/zabbix-server-mysql:centos-3.0-latest
+                        container_name: zabbix-server-mysql
+                        restart: always
+                        depends_on:
+                                - mysqld5.7.24
+                        environment:
+                                - DB_SERVER_HOST=192.168.3.50
+                                - MYSQL_USER=root
+                                - MYSQL_PASSWORD=1234,abcd
+                        network_mode: "host"
+                zabbix-web-nginx-mysql:
+                        image: zabbix/zabbix-web-nginx-mysql:centos-3.0-latest
+                        container_name: zabbix-web-nginx-mysql
+                        restart: always
+                        depends_on:
+                                - mysqld5.7.24
+                        environment:
+                                - DB_SERVER_HOST=192.168.3.50
+                                - MYSQL_USER=root
+                                - MYSQL_PASSWORD=1234,abcd
+                                - ZBX_SERVER_HOST=192.168.3.50
+                                - PHP_TZ=Asia/Shanghai
+                        network_mode: "host"
+                zabbix-agent:
+                        image: zabbix/zabbix-agent:centos-3.0-latest
+                        container_name: zabbix-agent
+                        restart: always
+                        privileged: true
+                        environment:
+                                - ZBX_HOSTNAME=192.168.3.50
+                                - ZBX_SERVER_HOST=192.168.3.50
+                        network_mode: "host" 
