@@ -1,1 +1,2 @@
-本docker-compose.file建立的为zabbix-server服务器并监控本机，如只要客户端 只需执行会后agent
+本docker-compose.file建立的为zabbix-server服务器并监控本机，如只要客户端 只需执行agent镜像
+zabbix初始账号密码 Admin zabbix
