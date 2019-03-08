@@ -37,4 +37,5 @@ services:
                         environment:
                                 - ZBX_HOSTNAME=192.168.3.50
                                 - ZBX_SERVER_HOST=192.168.3.50
+                                - ZBX_ENABLEREMOTECOMMANDS=1
                         network_mode: "host" 
