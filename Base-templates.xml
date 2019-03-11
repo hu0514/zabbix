@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2019-03-08T10:06:40Z</date>
+    <date>2019-03-11T08:50:02Z</date>
     <groups>
         <group>
             <name>Base-templates</name>
@@ -23,6 +23,9 @@
                 </application>
                 <application>
                     <name>CPU</name>
+                </application>
+                <application>
+                    <name>Disk</name>
                 </application>
                 <application>
                     <name>Memory</name>
@@ -266,7 +269,7 @@
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>bps</units>
                     <delta>1</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -352,7 +355,7 @@
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>bps</units>
                     <delta>1</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -391,9 +394,9 @@
                     <key>system.cpu.load[percpu,avg1]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
@@ -434,9 +437,9 @@
                     <key>system.cpu.load[percpu,avg5]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
@@ -477,9 +480,9 @@
                     <key>system.cpu.load[percpu,avg15]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
@@ -563,9 +566,9 @@
                     <key>system.cpu.util[,iowait]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
@@ -606,11 +609,11 @@
                     <key>system.cpu.util[]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -942,6 +945,49 @@
                     <logtimefmt/>
                 </item>
                 <item>
+                    <name>系统启动时间</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.run[TZ='Asia/Shanghai' date -d &quot;$(awk -F. '{print $1}' /proc/uptime) second ago&quot; +&quot;%Y-%m-%d %H:%M:%S&quot;]</key>
+                    <delay>30</delay>
+                    <history>90</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>1</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>System</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
                     <name>内核信息</name>
                     <type>0</type>
                     <snmp_community/>
@@ -1079,11 +1125,11 @@
                     <key>vfs.dev.read[sda,ops]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>ops</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -1105,7 +1151,11 @@
                     <port/>
                     <description/>
                     <inventory_link>0</inventory_link>
-                    <applications/>
+                    <applications>
+                        <application>
+                            <name>Disk</name>
+                        </application>
+                    </applications>
                     <valuemap/>
                     <logtimefmt/>
                 </item>
@@ -1118,11 +1168,11 @@
                     <key>vfs.dev.write[sda,ops]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>ops</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -1144,7 +1194,11 @@
                     <port/>
                     <description/>
                     <inventory_link>0</inventory_link>
-                    <applications/>
+                    <applications>
+                        <application>
+                            <name>Disk</name>
+                        </application>
+                    </applications>
                     <valuemap/>
                     <logtimefmt/>
                 </item>
@@ -1157,11 +1211,11 @@
                     <key>vfs.fs.inode[/,pused]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -1183,7 +1237,11 @@
                     <port/>
                     <description/>
                     <inventory_link>0</inventory_link>
-                    <applications/>
+                    <applications>
+                        <application>
+                            <name>Disk</name>
+                        </application>
+                    </applications>
                     <valuemap/>
                     <logtimefmt/>
                 </item>
@@ -1196,11 +1254,11 @@
                     <key>vfs.fs.size[/,pused]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -1222,7 +1280,11 @@
                     <port/>
                     <description/>
                     <inventory_link>0</inventory_link>
-                    <applications/>
+                    <applications>
+                        <application>
+                            <name>Disk</name>
+                        </application>
+                    </applications>
                     <valuemap/>
                     <logtimefmt/>
                 </item>
@@ -1261,7 +1323,11 @@
                     <port/>
                     <description/>
                     <inventory_link>0</inventory_link>
-                    <applications/>
+                    <applications>
+                        <application>
+                            <name>Disk</name>
+                        </application>
+                    </applications>
                     <valuemap/>
                     <logtimefmt/>
                 </item>
@@ -1300,7 +1366,11 @@
                     <port/>
                     <description/>
                     <inventory_link>0</inventory_link>
-                    <applications/>
+                    <applications>
+                        <application>
+                            <name>Disk</name>
+                        </application>
+                    </applications>
                     <valuemap/>
                     <logtimefmt/>
                 </item>
@@ -1356,11 +1426,11 @@
                     <key>vm.memory.size[pavailable]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -1399,11 +1469,11 @@
                     <key>vm.memory.size[pused]</key>
                     <delay>30</delay>
                     <history>15</history>
-                    <trends>0</trends>
+                    <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
