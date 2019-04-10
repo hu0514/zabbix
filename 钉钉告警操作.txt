@@ -1,0 +1,24 @@
+服务器端设置
+
+将脚本放置zabbix-server-mysql容器/usr/lib/zabbix/alertscripts/目录下更名为dingding.sh
+添加执行权限
+chmod +x dingding.sh
+
+web端设置
+1 管理-报警媒介
+名称--钉钉
+类型--脚本
+脚本名称--dingding.sh
+参数
+{ALERT.SENDTO}
+{ALERT.SUBJECT}
+{ALERT.MESSAGE}
+
+2 配置-动作 
+根据模板配置
+
+3 管理-用户
+报警媒介--钉钉
+收件人--随意
+
+

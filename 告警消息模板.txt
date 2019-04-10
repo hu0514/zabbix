@@ -1,0 +1,46 @@
+操作：
+
+标题：服务器:{HOST.NAME}发生: {TRIGGER.NAME}故障!
+内容：
+{
+告警主机：{HOST.NAME}
+告警信息：{TRIGGER.NAME}
+告警项目：{ITEM.NAME} 
+告警时间：{EVENT.DATE}_{EVENT.TIME}
+当前状态：故障  值={ITEM.VALUE}
+故障已持续{EVENT.AGE}，请尽快处理
+事件ID：{EVENT.ID}
+}
+
+
+
+
+恢复操作：
+
+标题：服务器:{HOST.NAME}: {TRIGGER.NAME}已恢复!
+内容：
+{
+告警信息：{TRIGGER.NAME}
+告警项目：{ITEM.NAME}
+告警时间：{EVENT.DATE}_{EVENT.TIME}
+恢复时间：{EVENT.RECOVERY.DATE}_{EVENT.RECOVERY.TIME}
+当前状态：{TRIGGER.STATUS}  值={ITEM.VALUE}
+故障共持续{EVENT.AGE}
+事件ID：{EVENT.ID}
+}
+
+
+
+
+确认操作：
+
+标题：服务器:{HOST.NAME}: 报警确认！
+内容：
+{
+确认信息："{ACK.MESSAGE}"
+服务器：{HOST.NAME}发生: {TRIGGER.NAME}故障!
+确认人：{USER.FULLNAME} 
+时间：{ACK.DATE} {ACK.TIME} 
+当前的问题是: {TRIGGER.NAME}
+时间ID：{EVENT.ID}
+}

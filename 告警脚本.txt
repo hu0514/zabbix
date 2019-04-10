@@ -1,0 +1,18 @@
+#!/bin/bash
+to=$1
+subject=$2
+text=$3
+curl 'https://oapi.dingtalk.com/robot/send?access_token=ba94d824b290f4fc58127b6e86d86a20adac7c033dce1fe0fb409c2d75c79d3f' \
+-H 'Content-Type: application/json' \
+-d '
+{"msgtype": "text",
+"text": {
+"content": "'"$text"'"
+},
+"at":{
+"atMobiles":[
+"'"$1"'"
+],
+"isAtAll":false
+}
+}'
