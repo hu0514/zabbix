@@ -35,7 +35,7 @@ services:
                         restart: always
                         privileged: true
                         environment:
-                                - ZBX_HOSTNAME=192.168.3.50
-                                - ZBX_SERVER_HOST=192.168.3.50
+                                - ZBX_HOSTNAME=192.168.3.50 #客户端hostname 和server端配置的主机名一致
+                                - ZBX_SERVER_HOST=192.168.3.50 
                                 - ZBX_ENABLEREMOTECOMMANDS=1
                         network_mode: "host" 

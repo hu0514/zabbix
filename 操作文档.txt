@@ -1,2 +1,5 @@
-±¾docker-compose.file½¨Á¢µÄÎªzabbix-server·şÎñÆ÷²¢¼à¿Ø±¾»ú£¬ÈçÖ»Òª¿Í»§¶Ë Ö»ĞèÖ´ĞĞagent¾µÏñ
-zabbix³õÊ¼ÕËºÅÃÜÂë Admin zabbix
+æœ¬docker-compose.fileå»ºç«‹çš„ä¸ºzabbix-serveræœåŠ¡å™¨å¹¶ç›‘æ§æœ¬æœºï¼Œå¦‚åªè¦å®¢æˆ·ç«¯ åªéœ€æ‰§è¡Œagenté•œåƒ
+zabbixåˆå§‹è´¦å·å¯†ç  Admin zabbix
+
+æ³¨ï¼š
+zabbix_get -s ip -k key è·å–keyå€¼
